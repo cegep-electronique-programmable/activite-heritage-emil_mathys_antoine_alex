@@ -2,18 +2,18 @@
 using namespace std;
 
 class etudiant {
-    double numeroMatricule;
+    int numeroMatricule;
     int moyenne;
 	
 public:
-    etudiant(double);
-    double getMatricule();
+    void setMatricule(int);
+    int getMatricule();
     void setMoyenne(int);
     int getMoyenne();
 };
 
 
-etudiant::etudiant(double nouveauMatricule){
+void etudiant::setMatricule(int nouveauMatricule){
     //Le numÃ©rod de matricule doit nÃ©cessairement avoir 6 chiffres
     if ((nouveauMatricule >= 100000) && (nouveauMatricule <= 999999)){
         this->numeroMatricule = nouveauMatricule;    
@@ -21,13 +21,11 @@ etudiant::etudiant(double nouveauMatricule){
     else{
         this->numeroMatricule = 0;
     }
-    
 }
 
-double etudiant::getMatricule(void){
-    return (this->moyenne);
+int etudiant::getMatricule(void){
+    return (this->numeroMatricule);
 }
-
 
 void etudiant::setMoyenne(int nouvelleMoyenne){
     if (nouvelleMoyenne <= 100){
@@ -38,17 +36,22 @@ void etudiant::setMoyenne(int nouvelleMoyenne){
     }
 }
 
-
 int etudiant::getMoyenne(void){
-    return (this->numeroMatricule);
+    return (this->moyenne);
 }
-    
 
 int main() {
-    printf("Hello world !\n\r\n\r");
-    etudiant etudiant147(147);
-    etudiant147.setMoyenne(100);
-    printf("Etudiant147, matricule # %d, moyenne %d", etudiant147.getMatricule(), etudiant147.getMoyenne());
+    int numeroMatriculeTmp;
+    int moyenneTmp;
     
+    printf("Hello world !\n\n");
+    
+    etudiant etudiant1;
+    etudiant1.setMatricule(111111);
+    etudiant1.setMoyenne(80);
+    numeroMatriculeTmp = etudiant1.getMatricule();
+    moyenneTmp = etudiant1.getMoyenne(); 
+    printf("Etudiant1, matricule # %d, moyenne %d\n", numeroMatriculeTmp, moyenneTmp);
+
     return 0;
-} 
+}
